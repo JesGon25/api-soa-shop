@@ -5,7 +5,7 @@ class UserController {
 
     async index({ request, response, view }) {
         try{
-            let sellers = await User.query().where('rol','seller').select('id','username','status','avatar','created_at').fetch();
+            let sellers = await User.query().where('rol','seller').select('id','username','email','status','avatar','created_at').fetch();
             let count   = await User.query().where('rol','seller').getCount();
             return response.status(200).json({
                 "message":"Listado de vendedores",
