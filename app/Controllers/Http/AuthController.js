@@ -57,6 +57,17 @@ class AuthController {
         }
     }
 
+    async tokenUser({request,response}){
+        try{
+            let token = await Token.query().where('user_id',request.get().user).first();
+            return response.status(201).json({"token":token.token});
+        }catch(error){
+            return response.status(500).json({
+                "error":"Error: "+error
+            });
+        }
+    }
+
 
 }
 

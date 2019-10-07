@@ -28,6 +28,7 @@ Route.group(()=>{
 Route.group(()=>{
 
     Route.get('token-admin','AuthController.token');
+    Route.get('token-user','AuthController.tokenUser');
 
     Route.resource('products','ProductController').apiOnly();
     Route.put('remove-product/:product_id','ProductController.discartToInventory');
